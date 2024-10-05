@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "axios": "^1.7.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "weather",
+  "version": "1.0.0",
+  "description": "this is a trial for api usage",
+  "main": "server.js",
+  "type": "module",
+  "nodemonConfig": {
+    "ext": "js,ejs,css,html"
+  },
+  "author": "Afk4ever1",
+  "license": "ISC"
+}

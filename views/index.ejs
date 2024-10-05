@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather Forecast</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Weather Today [<%=smar.daily.time[0]%>]</h1>
+        <% 
+        const timeList = smar.hourly.time;
+        const currentTime = smar.current.time.slice(0,-2) + "00";
+        const index = timeList.indexOf(currentTime);
+        const isDay = smar.hourly.is_day[index];
+        %>
+        
+        
+        <div class="weather_container">
+            <div class="weather_card">
+                <h2>Smar City</h2>
+                <% if (isDay == 1) { 
+                  switch (smar.daily.weather_code[0]) {
+                    case 0:
+                    case 1:
+                      %>
+                  <span class="icon"><img src="./Images/sun.png" alt="sun" height="100" width="100"></span>
+                  <span class="temp"><%=smar.current.temperature_2m %>°C</span>
+                  <span class="weather_descrip">Sunny</span>
+                      <%
+                      break;
+                      case 2:
+                        %>
+                  <span class="icon"><img src="./Images/cloudy.png" alt="sun" height="100" width="100"></span>
+                  <span class="temp"><%=smar.current.temperature_2m %>°C</span>
+                  <span class="weather_descrip">Bit Cloudy</span>
+                  <%
+                  break;
+                  case 3:
+                    %>
+                  <span class="icon"><img src="./Images/clouds.png" alt="sun" height="100" width="100"></span>
+                  <span class="temp"><%=smar.current.temperature_2m %>°C</span>
+                  <span class="weather_descrip">Cloudy</span>
+                  <% 
+                  break;
+                  case 61:
+                  case 63:
+                  case 65:
+                  case 66:
+                  case 67:
+                    %>
+                  <span class="icon"><img src="./Images/rain.png" alt="sun" height="100" width="100"></span>
+                  <span class="temp"><%=smar.current.temperature_2m %>°C</span>
+                  <span class="weather_descrip">rain</span>
+                  <%
+                    default:
+                      %>
+                  <span class="icon"><img src="./Images/unknown.png" alt="sun" height="100" width="100"></span>
+                  <span class="temp"><%=smar.current.temperature_2m %>°C</span>
+                  <span class="weather_descrip">Unknown</span>
+                  <%
+                      break;
+                  } 
+                } else {
+                   switch (smar.daily.weather_code[0]) {
+                    case 0:
+                    case 1:
+                      %>
+                  <span class="icon"><img src="./Images/moon.png" alt="sun" height="100" width="100"></span>
+                  <span class="temp"><%=smar.current.temperature_2m %>°C</span>
+                  <span class="weather_descrip">Clear</span>
+                      <%
+                      break;
+                      case 2:
+                        %>
+                  <span class="icon"><img src="./Images/cloudy_moon.png" alt="sun" height="100" width="100"></span>
+                  <span class="temp"><%=smar.current.temperature_2m %>°C</span>
+                  <span class="weather_descrip">Bit Cloudy</span>
+                  <%
+                  break;
+                  case 3:
+                    %>
+                  <span class="icon"><img src="./Images/clouds.png" alt="sun" height="100" width="100"></span>
+                  <span class="temp"><%=smar.current.temperature_2m %>°C</span>
+                  <span class="weather_descrip">Cloudy</span>
+                  <% 
+                  break;
+                  case 61:
+                  case 63:
+                  case 65:
+                  case 66:
+                  case 67:
+                    %>
+                  <span class="icon"><img src="./Images/rain.png" alt="sun" height="100" width="100"></span>
+                  <span class="temp"><%=smar.current.temperature_2m %>°C</span>
+                  <span class="weather_descrip">rain</span>
+                  <%
+                    default:
+                      %>
+                  <span class="icon"><img src="./Images/unknown.png" alt="sun" height="100" width="100"></span>
+                  <span class="temp"><%=smar.current.temperature_2m %>°C</span>
+                  <span class="weather_descrip">Unknown</span>
+                  <%
+                      break;
+                  }
+                }
+                %>
+  
+                
+                <div class="min_max">
+                <span class="max_temp"><svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.6568 8.96219L16.2393 10.3731L12.9843 7.10285L12.9706 20.7079L10.9706 20.7059L10.9843 7.13806L7.75404 10.3532L6.34314 8.93572L12.0132 3.29211L17.6568 8.96219Z"
+                      fill="currentColor"
+                    />
+                  </svg><%=smar.daily.temperature_2m_max[0]%>°C</span>
+                <span class="min_temp"><svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.0001 3.67157L13.0001 3.67157L13.0001 16.4999L16.2426 13.2574L17.6568 14.6716L12 20.3284L6.34314 14.6716L7.75735 13.2574L11.0001 16.5001L11.0001 3.67157Z"
+                      fill="currentColor"
+                    />
+                  </svg><%=smar.daily.temperature_2m_min[0]%>°C</span>
+            </div>
+            </div>
+            <div class="weather_card">
+                <h2>Douala City</h2>
+
+              <% if (isDay == 1) { 
+                switch (douala.daily.weather_code[0]) {
+                  case 0:
+                  case 1:
+                    %>
+                <span class="icon"><img src="./Images/sun.png" alt="sun" height="100" width="100"></span>
+                <span class="temp"><%=douala.current.temperature_2m %>°C</span>
+                <span class="weather_descrip">Sunny</span>
+                    <%
+                    break;
+                    case 2:
+                      %>
+                <span class="icon"><img src="./Images/cloudy.png" alt="sun" height="100" width="100"></span>
+                <span class="temp"><%=douala.current.temperature_2m %>°C</span>
+                <span class="weather_descrip">Bit Cloudy</span>
+                <%
+                break;
+                case 3:
+                  %>
+                <span class="icon"><img src="./Images/clouds.png" alt="sun" height="100" width="100"></span>
+                <span class="temp"><%=douala.current.temperature_2m %>°C</span>
+                <span class="weather_descrip">Cloudy</span>
+                <% 
+                break;
+                case 61:
+                case 63:
+                case 65:
+                case 66:
+                case 67:
+                  %>
+                <span class="icon"><img src="./Images/rain.png" alt="sun" height="100" width="100"></span>
+                <span class="temp"><%=douala.current.temperature_2m %>°C</span>
+                <span class="weather_descrip">rain</span>
+                <%
+                  default:
+                    %>
+                <span class="icon"><img src="./Images/unknown.png" alt="sun" height="100" width="100"></span>
+                <span class="temp"><%=douala.current.temperature_2m %>°C</span>
+                <span class="weather_descrip">Unknown</span>
+                <%
+                    break;
+                } 
+              } else {
+                 switch (douala.daily.weather_code[0]) {
+                  case 0:
+                  case 1:
+                    %>
+                <span class="icon"><img src="./Images/moon.png" alt="sun" height="100" width="100"></span>
+                <span class="temp"><%=douala.current.temperature_2m %>°C</span>
+                <span class="weather_descrip">Clear</span>
+                    <%
+                    break;
+                    case 2:
+                      %>
+                <span class="icon"><img src="./Images/cloudy_moon.png" alt="sun" height="100" width="100"></span>
+                <span class="temp"><%=douala.current.temperature_2m %>°C</span>
+                <span class="weather_descrip">Bit Cloudy</span>
+                <%
+                break;
+                case 3:
+                  %>
+                <span class="icon"><img src="./Images/clouds.png" alt="sun" height="100" width="100"></span>
+                <span class="temp"><%=douala.current.temperature_2m %>°C</span>
+                <span class="weather_descrip">Cloudy</span>
+                <% 
+                
+                break;
+                case 61:
+                case 63:
+                case 65:
+                case 66:
+                case 67:
+                  %>
+                <span class="icon"><img src="./Images/rain.png" alt="sun" height="100" width="100"></span>
+                <span class="temp"><%=douala.current.temperature_2m %>°C</span>
+                <span class="weather_descrip">rain</span>
+                <%
+                  default:
+                    %>
+                <span class="icon"><img src="./Images/unknown.png" alt="sun" height="100" width="100"></span>
+                <span class="temp"><%=douala.current.temperature_2m %>°C</span>
+                <span class="weather_descrip">Unknown</span>
+                <%
+                    break;
+                }
+              }
+              %>
+
+                <div class="min_max">
+                <span class="max_temp"><svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.6568 8.96219L16.2393 10.3731L12.9843 7.10285L12.9706 20.7079L10.9706 20.7059L10.9843 7.13806L7.75404 10.3532L6.34314 8.93572L12.0132 3.29211L17.6568 8.96219Z"
+                      fill="currentColor"
+                    />
+                  </svg><%=douala.daily.temperature_2m_max[0]%>°C</span>
+                <span class="min_temp"><svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.0001 3.67157L13.0001 3.67157L13.0001 16.4999L16.2426 13.2574L17.6568 14.6716L12 20.3284L6.34314 14.6716L7.75735 13.2574L11.0001 16.5001L11.0001 3.67157Z"
+                      fill="currentColor"
+                    />
+                  </svg><%=douala.daily.temperature_2m_min[0]%>°C</span>
+            </div>
+                
+            </div>
+            <div class="weather_card">
+                <h2>Slim City</h2>
+                <% if (isDay == 1) { 
+                switch (slim.daily.weather_code[0]) {
+                  case 0:
+                  case 1:
+                    %>
+                <span class="icon"><img src="./Images/sun.png" alt="sun" height="100" width="100"></span>
+                <span class="temp"><%=slim.current.temperature_2m %>°C</span>
+                <span class="weather_descrip">Sunny</span>
+                    <%
+                    break;
+                    case 2:
+                      %>
+                <span class="icon"><img src="./Images/cloudy.png" alt="sun" height="100" width="100"></span>
+                <span class="temp"><%=slim.current.temperature_2m %>°C</span>
+                <span class="weather_descrip">Bit Cloudy</span>
+                <%
+                break;
+                case 3:
+                  %>
+                <span class="icon"><img src="./Images/clouds.png" alt="sun" height="100" width="100"></span>
+                <span class="temp"><%=slim.current.temperature_2m %>°C</span>
+                <span class="weather_descrip">Cloudy</span>
+                <% 
+                break;
+                case 61:
+                case 63:
+                case 65:
+                case 66:
+                case 67:
+                  %>
+                <span class="icon"><img src="./Images/rain.png" alt="sun" height="100" width="100"></span>
+                <span class="temp"><%=slim.current.temperature_2m %>°C</span>
+                <span class="weather_descrip">rain</span>
+                <%
+                  default:
+                    %>
+                <span class="icon"><img src="./Images/unknown.png" alt="sun" height="100" width="100"></span>
+                <span class="temp"><%=slim.current.temperature_2m %>°C</span>
+                <span class="weather_descrip">Unknown</span>
+                <%
+                    break;
+                } 
+              } else {
+                 switch (slim.daily.weather_code[0]) {
+                  case 0:
+                  case 1:
+                    %>
+                <span class="icon"><img src="./Images/moon.png" alt="sun" height="100" width="100"></span>
+                <span class="temp"><%=slim.current.temperature_2m %>°C</span>
+                <span class="weather_descrip">Clear</span>
+                    <%
+                    break;
+                    case 2:
+                      %>
+                <span class="icon"><img src="./Images/cloudy_moon.png" alt="sun" height="100" width="100"></span>
+                <span class="temp"><%=slim.current.temperature_2m %>°C</span>
+                <span class="weather_descrip">Bit Cloudy</span>
+                <%
+                break;
+                case 3:
+                  %>
+                <span class="icon"><img src="./Images/clouds.png" alt="sun" height="100" width="100"></span>
+                <span class="temp"><%=slim.current.temperature_2m %>°C</span>
+                <span class="weather_descrip">Cloudy</span>
+                <% 
+                break;
+                case 61:
+                case 63:
+                case 65:
+                case 66:
+                case 67:
+                  %>
+                <span class="icon"><img src="./Images/rain.png" alt="sun" height="100" width="100"></span>
+                <span class="temp"><%=slim.current.temperature_2m %>°C</span>
+                <span class="weather_descrip">rain</span>
+                <%
+                  default:
+                    %>
+                <span class="icon"><img src="./Images/unknown.png" alt="sun" height="100" width="100"></span>
+                <span class="temp"><%=slim.current.temperature_2m %>°C</span>
+                <span class="weather_descrip">Unknown</span>
+                <%
+                    break;
+                }
+              }
+              %>
+
+                <div class="min_max">
+                <span class="max_temp"><svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.6568 8.96219L16.2393 10.3731L12.9843 7.10285L12.9706 20.7079L10.9706 20.7059L10.9843 7.13806L7.75404 10.3532L6.34314 8.93572L12.0132 3.29211L17.6568 8.96219Z"
+                      fill="currentColor"
+                    />
+                  </svg><%=slim.daily.temperature_2m_max[0]%>°C</span>
+                <span class="min_temp"><svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.0001 3.67157L13.0001 3.67157L13.0001 16.4999L16.2426 13.2574L17.6568 14.6716L12 20.3284L6.34314 14.6716L7.75735 13.2574L11.0001 16.5001L11.0001 3.67157Z"
+                      fill="currentColor"
+                    />
+                  </svg><%=slim.daily.temperature_2m_min[0]%>°C</span>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+
+</body>
+</html>

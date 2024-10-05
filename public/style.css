@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    color: #FDF4F5;
+    background-image: url("./Images/main_bg.png");
+    background-position: center ;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: "Roboto", sans-serif;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto;
+    width: 85vw;
+}
+.container h1{
+    text-align: center;
+    font-size: 3rem;
+    }
+.weather_container{
+    margin: 100px 0;
+    display: flex;
+    justify-content: space-evenly;
+    
+
+}
+.weather_card{
+    border: 3px solid #BF5468;
+    background-color: transparent;
+    background-image: linear-gradient(transparent 15%, #01152692 85%);
+    width: 250px;
+    height: 300px;
+    border-radius: 25px;
+    box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.403);
+    border-top: hidden;
+    display: flex;
+    flex-direction: column;
+    
+}
+.weather_card h2{
+    font-size: 2.5rem;
+    position: relative;
+    top: -30px;
+    text-align: center;
+}
+
+.weather_card span{
+    font-size: 1.5rem;
+    margin: 0 auto;
+    position: relative;
+    top: -30px;
+    font-weight: 400;
+    font-size: 2.5rem;
+    
+}
+
+.weather_card .weather_descrip{
+    font-size: 3rem;
+}
+.weather_card .min_max{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 15px;
+    
+}
+.weather_card .min_max .max_temp{
+    color: #BF5468;
+    font-size: 2rem;
+}
+.weather_card .min_max .min_temp{
+    color: #049DBF;
+    font-size: 2rem;
+}
+
+
+@media (max-width: 950px) {
+    .weather_container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+    }
+  }
+
+  @media (max-width: 740px) {
+    .container h1{
+        font-size: 2.5rem;
+        }
+    }
+  
+    @media (max-width: 605px) {
+        .container h1{
+            font-size: 2.25rem;
+            }
+        }
+      
